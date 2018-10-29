@@ -1,0 +1,35 @@
+[user]
+  email = hello@marcusandre.de
+  name = Marcus André
+[core]
+  editor = vim
+[apply]
+  whitespace = fix
+[log]
+  date = iso
+  abbrevCommit = true
+[push]
+  default = current
+[merge]
+  conflictstyle = diff3
+[color]
+  interactive = auto
+  ui = auto
+[alias]
+  aa = add --all
+  branches = branch -a --color -v
+  co = checkout
+  dc = diff --cached
+  dw = diff --color --word-diff
+  fa = fetch --all --prune
+  hash = !git rev-parse --short HEAD | cut -c -7 | xargs echo -n
+  l = log --pretty=oneline --abbrev-commit --graph --decorate
+  ll = log --pretty=format:'%C(yellow)%h%C(cyan)%d%C(reset) %s %C(green)(%ar) %C(blue)<%an>%C(reset)' --graph --decorate
+  noff = merge --no-ff
+  prevent = update-index --assume-unchanged
+  root = rev-parse --show-toplevel
+  sup = submodule update --recursive --remote
+  today = log --since=midnight --oneline --no-merges
+  yesterday = diff --name-only --stat @{1.days.ago}
+[github]
+  user = marcusandre
