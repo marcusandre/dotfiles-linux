@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+WALLPAPERDIR=${1:-~/shared/wallpaper}
+feh --bg-scale "$WALLPAPERDIR/`ls $WALLPAPERDIR | shuf -n1`"
