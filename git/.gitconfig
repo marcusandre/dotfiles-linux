@@ -8,6 +8,8 @@
 [log]
   date = iso
   abbrevCommit = true
+[commit]
+  verbose = true
 [push]
   default = current
 [merge]
