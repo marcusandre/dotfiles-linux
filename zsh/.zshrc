@@ -115,6 +115,7 @@ alias ns="cat package.json | jq '.scripts'"
 alias rf="rm -fr"
 alias s="git status -sb"
 alias t="tree -a -I '.git|node_modules'"
+alias lip="ip a | grep 192 | awk '{print \$2}' | cut -d '/' -f 1"
 alias wttr='curl https://de.wttr.in/Gruenstadt'
 alias rate='curl eur.rate.sx'
 alias latencies='curl cheat.sh/latencies'
@@ -123,3 +124,6 @@ md () {
   mkdir -p "$1"
   cd "$1"
 }
+
+# opam configuration
+test -r /home/m/.opam/opam-init/init.zsh && . /home/m/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
