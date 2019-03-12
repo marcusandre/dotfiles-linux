@@ -3,6 +3,7 @@
   name = Marcus André
 [core]
   editor = vim
+  excludesfile = ~/.gitignore_global
 [apply]
   whitespace = fix
 [log]
