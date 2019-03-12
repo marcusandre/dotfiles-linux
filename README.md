@@ -8,19 +8,19 @@ I'm running Arch Linux on a Dell XPS 13 (9360) with HiDPI display and external s
 
 ## Tools
 
-### [Zsh])(https://en.wikipedia.org/wiki/Z_shell)
+### [Zsh](https://en.wikipedia.org/wiki/Z_shell)
 
 Zsh is my favourite shell.
 
-### [Vim])(https://en.wikipedia.org/wiki/Vim_(text_editor))
+### [Vim](https://en.wikipedia.org/wiki/Vim_(text_editor))
 
 I don't think I have to say much about this. Not to be confused with [the standard editor](https://www.gnu.org/fun/jokes/ed-msg.html)!
 
-### [dwm])(https://dwm.suckless.org/)
+### [dwm](https://dwm.suckless.org/)
 
 dwm is my favourite and also the lightest window manager I have ever used. Practically non-existent. You will not even notice it.
 
-### [st])(https://st.suckless.org/)
+### [st](https://st.suckless.org/)
 
 st is a simple terminal implementation for X. It always does exactly what it's supposed to do.
 
