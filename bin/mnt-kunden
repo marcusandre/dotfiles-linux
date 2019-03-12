@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+target="/mnt/Kunden"
+server="//192.168.2.10/RW Kunden"
+options="username=m.andre,password=HZAQV3M)Hwp.rVkPcTzTuRqBn4ypWF,workgroup=REIZWERK,iocharset=utf8"
+
+if [ ! -d "$target" ]; then
+  sudo mkdir -p "$target"
+fi
+
+if [ -z "$(ls -A $target)" ]; then
+  sudo mount -t cifs "$server" /mnt/Kunden -o "$options"
+fi

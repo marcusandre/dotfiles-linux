@@ -11,9 +11,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-commentary'
@@ -38,6 +40,7 @@ set nowrap
 set showcmd
 set ttimeout
 set ttimeoutlen=100
+set signcolumn=yes
 
 " numbers
 set number
@@ -52,6 +55,7 @@ set showcmd
 set synmaxcol=1000
 set wildmenu
 set display=truncate
+set noshowmode " we have lightline
 
 " white space
 set tabstop=2
@@ -89,11 +93,14 @@ endif
 " == Syntax
 
 syntax on
-set t_Co=256
+
+if !has('gui_running')
+  set t_Co=256
+endif
 
 let g:dracula_colorterm = 0
 set background=dark
-colorscheme dracula
+silent colorscheme dracula
 
 " == statusline
 function! s:statusline_expr()
@@ -172,24 +179,35 @@ augroup nerd_loader
         \| endif
 augroup END
 
+" lightline
+
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ }
+
 " ale
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> [a <Plug>(ale_previous_wrap)
+nmap <silent> ]a <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+      \   'javascript': ['eslint'],
+      \}
 
 let g:ale_fixers = {
-\   'html': ['prettier'],
-\   'javascript': ['prettier', 'eslint'],
-\   'jsx': ['prettier', 'eslint'],
-\}
+      \   'html': ['prettier'],
+      \   'javascript': ['prettier', 'eslint'],
+      \   'jsx': ['prettier', 'eslint'],
+      \}
+
+" coc.vim
+inoremap <silent><expr> <c-space> coc#refresh()
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " == Filetypes
 augroup all
