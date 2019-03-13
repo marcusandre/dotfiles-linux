@@ -41,6 +41,7 @@ set showcmd
 set ttimeout
 set ttimeoutlen=100
 set signcolumn=yes
+set formatoptions+=j
 
 " numbers
 set number
@@ -89,6 +90,22 @@ if has('mouse')
   set mouse=a
 endif
 
+" history and sessions
+if &history < 1000
+  set history=1000
+endif
+if &tabpagemax < 50
+  set tabpagemax=50
+endif
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+set sessionoptions-=options
+
+" Load matchit.vim
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 
 " == Syntax
 
