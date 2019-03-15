@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -229,12 +230,17 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 " == Filetypes
 augroup all
   autocmd!
-  autocmd Filetype * setlocal sw=2 sts=2 ts=2
+  autocmd Filetype * setlocal sw=2 sts=2 ts=2 fileformat=unix
 augroup end
 
 augroup golang
   autocmd!
   autocmd FileType go setlocal nolist noexpandtab ts=4 sw=4 sts=4 modifiable
+augroup end
+
+augroup python
+  autocmd!
+  autocmd Filetype python setlocal sw=4 sts=4 ts=4
 augroup end
 
 augroup makefile
